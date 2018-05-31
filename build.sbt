@@ -11,7 +11,8 @@ assemblyJarName in assembly := "serverless-ammonite.jar"
 
 libraryDependencies ++= Seq(
   "com.amazonaws" % "aws-lambda-java-events" % "2.1.0",
-  "com.amazonaws" % "aws-lambda-java-core" % "1.2.0"
+  "com.amazonaws" % "aws-lambda-java-core"   % "1.2.0",
+  "com.lihaoyi"   % "ammonite"               % "1.1.2" cross CrossVersion.full
 )
 
 scalacOptions ++= Seq(
