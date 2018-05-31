@@ -1,5 +1,7 @@
 package com.github.nomadblacky.serverless.ammonite
 
+import ammonite.ops.root
+import ammonite.runtime.Storage
 import ammonite.util.Res._
 import com.amazonaws.services.lambda.runtime.{Context, RequestHandler}
 
@@ -8,7 +10,8 @@ class Handler extends RequestHandler[Request, Response] {
   def handleRequest(input: Request, context: Context): Response = {
     val (res, _) = ammonite
       .Main(
-        // Configuration REPL
+        // REPL Configuration
+        storageBackend = new Storage.Folder(root / 'tmp)
       )
       .runCode(
         """println("Hello Ammonite!")"""
