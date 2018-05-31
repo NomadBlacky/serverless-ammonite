@@ -6,7 +6,9 @@ name := "serverless-ammonite"
 
 resolvers += Resolver.sonatypeRepo("public")
 scalaVersion := "2.12.6"
-releaseNextVersion := { ver => Version(ver).map(_.bumpMinor.string).getOrElse("Error") }
+releaseNextVersion := { ver =>
+  Version(ver).map(_.bumpMinor.string).getOrElse("Error")
+}
 assemblyJarName in assembly := "serverless-ammonite.jar"
 
 libraryDependencies ++= Seq(
